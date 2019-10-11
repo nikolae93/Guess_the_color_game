@@ -3,7 +3,7 @@ console.log("Radi");
 var numberOfSquares = 6;
 var colors = generateColors(numberOfSquares);
 var h1= document.querySelector("h1");
- var resetButton = document.getElementById("reset");
+var resetButton = document.getElementById("reset");
 var easy = document.getElementById("easy");
 var hard = document.getElementById("hard");
 var squares = document.querySelectorAll(".square");
@@ -15,9 +15,9 @@ colorDisplay.textContent = pickedColor;
 var messageDisplay = document.getElementById("message");
 
 for(var i=0 ; i<squares.length; i++){
-	// dodela boja
+	// adding color
 	squares[i].style.backgroundColor = colors[i];
-    // dodavanje listenera
+    // add listener
     squares[i].addEventListener("click", function(){
     var clickedColor  =	this.style.backgroundColor ;
     if(clickedColor===pickedColor){messageDisplay.textContent= "Correct!" ;
@@ -52,7 +52,7 @@ for(var i=0;i<num;i++){
    arr.push(randomColor()) ;
 }
 
-// vraca niz
+
 	return arr;
 
 }
@@ -70,19 +70,23 @@ function randomColor(){
 
 
 resetButton.addEventListener("click", function(){
+
 	 colors = generateColors(numberOfSquares);
      pickedColor = pickColor();
-     colorDisplay.textContent=pickedColor;
+	 colorDisplay.textContent=pickedColor;
+	 
      for (var i =0; i<squares.length; i++){
      	squares[i].style.backgroundColor = colors[i];
 
-     }
+	 }
+	 
      h1.style.backgroundColor="steelblue";
      messageDisplay.textContent=" ";
      resetButton.textContent="New colors" ;
 });
 
 easy.addEventListener("click", function(){
+	
 	h1.style.backgroundColor = "steelblue";
 	messageDisplay.textContent=" ";
 	easy.classList.add("selected");
